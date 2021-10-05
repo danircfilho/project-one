@@ -30,7 +30,7 @@ app.get('/testdb', (req,res) => {
     ];
         res.json({
             success : true,
-            data: data
+            data: data //can only return date that equals date:date
         });
 }); 
 
