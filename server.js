@@ -3,11 +3,16 @@ const express = require('express');
 
 const app = express();
 
+/*routes*/
 app.get('/', (req,res) => {
     res.json({
         'success' : true
     });
 });
+
+/* app.get('/testsend', (req,res) => {
+    res.send("Yes it works!!!");
+}); */
 
 app.get('/testdb', (req,res) => {
     //example acess db
