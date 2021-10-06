@@ -1,43 +1,23 @@
 /*Import*/
 const express = require('express');
 
-const app = express();
+const bodyParser = require('body-parser);
+
+/*does not need "backend/routes/index.js" (by default will read index file)*/
+const api = require('./backend/routes');
+
+const app = express(); 
+
+app.use(bodyParser.json())
 
 /*routes*/
 app.get('/', (req,res) => {
-    res.json({
+    res.json({ 
         'success' : true
     });
 });
 
-/* app.get('/testsend', (req,res) => {
-    res.send("Yes it works!!!");
-}); */
-
-app.get('/testdb', (req,res) => {
-    //example acess db
-    const data = [
-        {
-            id: 1,
-            name: 'Project 1',
-            createdAt: '2021-01-01' 
-        },
-        {
-            id: 2,
-            name: 'Project 2',
-            createdAt: '2021-01-01' 
-        },
-        {
-            id: 3,
-            name: 'Project 3',
-            createdAt: '2021-01-01' 
-        }
-    ];
-        res.json({
-            success : true,
-            data: data //can only return date that equals date:date
-        });
-}); 
+app.use('/api', api); //"use" - middleware - express
 
 const PORT = 3080;
 app.listen(PORT);
