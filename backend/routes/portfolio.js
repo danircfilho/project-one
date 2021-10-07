@@ -1,6 +1,6 @@
 const router = require('express').Router();
 
-router.get('/', (req,res) => {
+router.get('/', (req, res) => {
     //example acess db
     const data = [
         {
@@ -25,9 +25,20 @@ router.get('/', (req,res) => {
         });
 }); 
 
-/* router.post('/', (req, res) => {
+router.get('/:exampleId', (req, res) => {
+    console.log('This is the id entered: ', req.params.exampleId);
+
+    //must return an answer!
+    res.json({
+        success: true,
+        id: req.params.exampleId
+    })
+});
+
+router.post('/', (req, res) => {
     res.json(req.body)
-}); */
+});
+
 
 /*Exports*/
 module.exports = router

@@ -2,6 +2,7 @@ const router = require('express').Router();
 
 const portfolio = require('./portfolio');
 
+//call only /api
 router.get('/', (req,res) => {
     res.json({
         success: false,
@@ -9,7 +10,8 @@ router.get('/', (req,res) => {
     })
 });
 
-router.use('/portfolio', portfolio)
+//call only /api/portfolio
+router.use('/portfolio', portfolio);
 
 /*Exports*/
 module.exports = router
