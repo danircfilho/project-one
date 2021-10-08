@@ -2,7 +2,7 @@
 
 ## Descriptions
 
-- mongodb used in the cloud (mongodb.com/cloud/atlas)
+- mongodb used in the cloud - Atlas (mongodb.com/cloud/atlas)
 - 
 - 
 
@@ -18,3 +18,4 @@ dotenv (npm i dotenv) 'read variables in the file .env'
 
 mongoose (npm i mongoose) 'connection mongodb'
 
+slug (npm i slug) 'db id management'

@@ -1,8 +1,9 @@
+/* The index.js file is the gateway that manages all requests */
 const router = require('express').Router();
-
 const portfolio = require('./portfolio');
+require('../db/mongodbConnection'); 
 
-//call only /api
+/* Route Management - call only /api */
 router.get('/', (req,res) => {
     res.json({
         success: false,
@@ -10,8 +11,8 @@ router.get('/', (req,res) => {
     })
 });
 
-//call only /api/portfolio
+/* call only /api/portfolio */
 router.use('/portfolio', portfolio);
 
-/*Exports*/
+/* Exports */
 module.exports = router

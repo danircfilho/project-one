@@ -1,44 +1,70 @@
 const router = require('express').Router();
+const Portfolio = require('../models/Portfolio'); 
 
-router.get('/', (req, res) => {
-    //example acess db
-    const data = [
-        {
-            id: 1,
-            name: 'Project 1',
-            createdAt: '2021-01-01' 
-        },
-        {
-            id: 2,
-            name: 'Project 2',
-            createdAt: '2021-01-01' 
-        },
-        {
-            id: 3,
-            name: 'Project 3',
-            createdAt: '2021-01-01' 
-        }
-    ];
-        res.json({
+router.get('/', async (req, res) => {
+    try {
+        const portfolio = await Portfolio.findOne({
+            /* slug: req.params.slug */
+        })
+
+        res.json ({
             success : true,
-            data //can only return 'data' that equals 'data:data'
-        });
+            data: portfolio
+        })
+
+    }catch(err) {
+        res.json ({
+            success: false,
+            message: err
+        })
+    }    
 }); 
 
-router.get('/:exampleId', (req, res) => {
-    console.log('This is the id entered: ', req.params.exampleId);
+router.post('/', async (req, res) => {
+    const portfolio = new Portfolio({
+        title: req.body.title,
+        description: req.body.description
+    });
+  
+    try {
+        const savedPortfolio = await Portfolio.save()
+        res.json ({
+            success: true,
+            data: savedPortfolio
+        })
 
-    //must return an answer!
-    res.json({
-        success: true,
-        id: req.params.exampleId
-    })
+    }catch(err) {
+        res,json ({
+            success: false,
+            message: err
+        })
+    }
 });
 
-router.post('/', (req, res) => {
-    res.json(req.body)
-});
+/* Update */
+/* router.patch('/:slug', async (req, res) => {    
+    try {
+        const updatePortfolio = await Portfolio.updateOne(
+            {
+                slug: req.params.slug
+            },
+            {
+                title: req.body.title,
+                require: req.body.require
+        })
 
+        res.json ({
+            success: true,
+        })
+
+    }catch(err) {
+        res.json ({
+            success: false,
+            message: err
+        })
+    }
+}); */
 
 /*Exports*/
 module.exports = router
+
