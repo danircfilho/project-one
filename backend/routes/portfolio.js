@@ -1,10 +1,35 @@
 const router = require('express').Router();
 const Portfolio = require('../models/Portfolio'); 
 
+/* CRUD */
+
+/* Create */
+router.post('/', async (req, res) => {
+    const portfolio = new Portfolio({
+        title: req.body.title,
+        description: req.body.description
+    })
+  
+    try {
+        const savedPortfolio = await portfolio.save()
+        res.json ({
+            success: true,
+            data: savedPortfolio
+        })
+
+    }catch(err) {
+        res,json ({
+            success: false,
+            message: err
+        })
+    }
+});
+
+/* Read */
 router.get('/', async (req, res) => {
     try {
-        const portfolio = await Portfolio.findOne({
-            /* slug: req.params.slug */
+        const portfolio = await Portfolio.find({
+            
         })
 
         res.json ({
@@ -20,29 +45,27 @@ router.get('/', async (req, res) => {
     }    
 }); 
 
-router.post('/', async (req, res) => {
-    const portfolio = new Portfolio({
-        title: req.body.title,
-        description: req.body.description
-    });
-  
+router.get('/:slug', async (req, res) => {
     try {
-        const savedPortfolio = await Portfolio.save()
+        const portfolio = await Portfolio.findOne({
+            slug: req.params.slug
+        })
+
         res.json ({
-            success: true,
-            data: savedPortfolio
+            success : true,
+            data: portfolio
         })
 
     }catch(err) {
-        res,json ({
+        res.json ({
             success: false,
             message: err
         })
-    }
-});
+    }    
+}); 
 
 /* Update */
-/* router.patch('/:slug', async (req, res) => {    
+router.patch('/:slug', async (req, res) => {    
     try {
         const updatePortfolio = await Portfolio.updateOne(
             {
@@ -55,6 +78,7 @@ router.post('/', async (req, res) => {
 
         res.json ({
             success: true,
+            updated: updatedPortfolio.nModified
         })
 
     }catch(err) {
@@ -63,7 +87,12 @@ router.post('/', async (req, res) => {
             message: err
         })
     }
-}); */
+}); 
+
+/* Delete */
+
+
+
 
 /*Exports*/
 module.exports = router
