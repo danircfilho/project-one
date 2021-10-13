@@ -2,20 +2,18 @@
 
 ## Descriptions
 
-- mongodb used in the cloud - Atlas (mongodb.com/cloud/atlas)
-- 
-- 
+- mongodb used in the cloud (mongodb.com/cloud/atlas)
+-
+-
 
 ## Dependencies
 
-express (npm i) 'express instalattion'
+- express (npm i) 'express instalattion'
 
-nodemom (npm i -D or npm install --save--dev) 'developer dependencies'
+- nodemom (npm i -D nodemon or npm install --save--dev nodemon) 'developer dependencies'
 
-body-parser (npm i body-parser) 'used in the app Postman'
+- body-parser (npm i body-parser) 'used in the app Postman'
 
-dotenv (npm i dotenv) 'read variables in the file .env'
+- dotenv (npm i dotenv) 'read variables in the file .env'
 
-mongoose (npm i mongoose) 'connection mongodb'
-
-slug (npm i slug) 'db id management'
+- mongoose (npm i mongoose) 'connection mongodb'
