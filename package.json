@@ -4,7 +4,8 @@
   "description": "Portifolio",
   "main": "server.js",
   "scripts": {
-    "nodestart": "nodemon server.js"
+    "nodestart": "nodemon server.js",
+    "start": "node server.js"
   },
   "keywords": [
     "MERN",
@@ -25,5 +26,8 @@
   },
   "devDependencies": {
     "nodemon": "^2.0.13"
+  },
+  "engines": {
+    "node": "14.x "
   }
 }
