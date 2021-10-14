@@ -17,3 +17,7 @@
 - dotenv (npm i dotenv) 'read variables in the file .env'
 
 - mongoose (npm i mongoose) 'connection mongodb'
+
+- cncurrently (npm i concurrently -D) 'execute multiple commands'
+
+-http-proxy-middleware (yarn add http-proxy-middleware) 'installed in frontend folder with yarn'
