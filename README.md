@@ -3,10 +3,10 @@
 ## Descriptions
 
 - mongodb used in the cloud (mongodb.com/cloud/atlas)
--
--
 
-## Dependencies
+## Dependencies (npm and yarn)
+
+## Backend (npm)
 
 - express (npm i) 'express instalattion'
 
@@ -18,6 +18,10 @@
 
 - mongoose (npm i mongoose) 'connection mongodb'
 
-- cncurrently (npm i concurrently -D) 'execute multiple commands'
+- concurrently (npm i concurrently -D) 'execute multiple commands'
 
--http-proxy-middleware (yarn add http-proxy-middleware) 'installed in frontend folder with yarn'
+## Frontend (yarn)
+
+- http-proxy-middleware (yarn add http-proxy-middleware) 'installed in frontend folder with yarn'
+
+- styled-components (yarn add styled-components) 'configurações de stilo - jsx'

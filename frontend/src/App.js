@@ -1,14 +1,16 @@
-const readData = ( ) => {
-  fetch('/api')
-  .then(result => {
-    console.log ("Backend data", result)
-  })
-}
+import React from 'react'
+
+/* Estilo Global */
+import GlobalStyle from './components/GlobalStyle'
+
+/* Componentes */
+import AboutUs from './pages/AboutUs' /* componente letra maiúscula AboutUs */
+
 function App() {
   return (
     <div>
-      {readData()}
-      Acesso ao frontend com sucesso
+      < GlobalStyle />
+      < AboutUs /> 
     </div>
   );
 }
