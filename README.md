@@ -25,3 +25,7 @@
 - http-proxy-middleware (yarn add http-proxy-middleware) 'installed in frontend folder with yarn'
 
 - styled-components (yarn add styled-components) 'configurações de stilo - jsx'
+
+- fontawesome (yarn add @fortawesome/fontawesome-svg-core , yarn add @fortawesome/free-solid-svg-icons , yarn add @fortawesome/react-fontawesome, yarn add @fortawesome/free-brands-svg-icons, yarn add @fortawesome/free-regular-svg-icons) 'https://fontawesome.com/'
+
+- react-router-dom (yarn add react-router-dom) 'roteamento entre paginas'
