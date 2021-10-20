@@ -19,7 +19,7 @@ const GlobalStyle = createGlobalStyle`
 
     button {
         font-weight: bold;
-        font-size: 1.1.rem;
+        font-size: 1.1rem;
         cursor: pointer;
         padding: 1rem 2rem;
         background: transparent;
@@ -33,7 +33,7 @@ const GlobalStyle = createGlobalStyle`
     }
 
     h2{
-        font-weight: ligther;
+        font-weight: lighter;
         font-size: 4rem;
     }
 
@@ -49,11 +49,11 @@ const GlobalStyle = createGlobalStyle`
     }
 
     a {
-        font-size: 1.1.rem;
+        font-size: 1.1rem;
     }
 
     span {
-        font-weight: ligther;
+        font-weight: lighter;
         color: #416CD5;
     }
 
