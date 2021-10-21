@@ -16,7 +16,9 @@ const Nav = () => {
 
     return (
         <StyledNav>
-            <h1><Link to='/'> Daniel Rodrigues </Link></h1>
+            <h1>
+                <Link to='/'>Daniel Rodrigues</Link>
+            </h1>
             <ul>
                 {/* <li><Link to='/'> About Me </Link></li> - esse é o resultado normal sem os caraceres </>*/}
                 <li><Link to='/'> {menuOption.about}</Link></li>
@@ -37,6 +39,7 @@ const StyledNav = styled.nav`
     background: #282828;
     position: sticky; /* fica fixo no topo */
     top: 0;
+    z-index: 10;
     ul {
         display: flex;
         list-style: none;
