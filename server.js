@@ -20,14 +20,14 @@ app.get('/', (req,res) => {
 app.use('/api', api); 
 
 //Servidor se comunicar com o frontend
-if ( process.env.NODE.ENV === 'production' ) {
+if ( process.env.NODE_ENV === 'production' ) {
 
     //Express entregar os assets de produção (exemplo: mains.js ou css.js da pasta build/static do frontend)
     app.use (express.static('frontend/build'));
     
     //Express entregar o index.html (caminho)
     const path = require('path')
-    app.get ('*', (req,res) => {
+    app.get ('*', (req, res) => {
         res.sendFile(path.resolve(__dirname, 'frontend', 'build', 'index.html'))
     })
 }
