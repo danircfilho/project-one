@@ -27,7 +27,7 @@ if ( process.env.NODE.ENV === 'production' ) {
     
     //Express entregar o index.html (caminho)
     const path = require('path')
-    app.get ('*', (req, res) => {
+    app.get ('*', (req,res) => {
         res.sendFile(path.resolve(__dirname, 'frontend', 'build', 'index.html'))
     })
 }
