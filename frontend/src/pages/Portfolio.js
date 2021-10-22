@@ -6,7 +6,7 @@ const Portfolio = () => {
         <PortfolioList>
             <CardList>
                 <StyleCard>
-                    <img src="" />
+                    <img src="" alt="" />
                     <div>
                         <h3>Title</h3>
                         <h4>Date</h4>
@@ -14,7 +14,7 @@ const Portfolio = () => {
                     </div>
                 </StyleCard>
                 <StyleCard>
-                    <img src="" />
+                    <img src="" alt="" />
                     <div>
                         <h3>Title</h3>
                         <h4>Date</h4>
@@ -22,7 +22,7 @@ const Portfolio = () => {
                     </div>
                 </StyleCard>
                 <StyleCard>
-                    <img src="" />
+                    <img src="" alt="" />
                     <div>
                         <h3>Title</h3>
                         <h4>Date</h4>
@@ -30,7 +30,7 @@ const Portfolio = () => {
                     </div>
                 </StyleCard>
                 <StyleCard>
-                    <img src="" />
+                    <img src="" alt="" />
                     <div>
                         <h3>Title</h3>
                         <h4>Date</h4>
@@ -38,7 +38,7 @@ const Portfolio = () => {
                     </div>
                 </StyleCard>
                 <StyleCard>
-                    <img src="" />
+                    <img src="" alt="" />
                     <div>
                         <h3>Title</h3>
                         <h4>Date</h4>
@@ -46,7 +46,7 @@ const Portfolio = () => {
                     </div>
                 </StyleCard>
                 <StyleCard>
-                    <img src="" />
+                    <img src=""alt="" />
                     <div>
                         <h3>Title</h3>
                         <h4>Date</h4>
