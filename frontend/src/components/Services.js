@@ -10,9 +10,9 @@ import { faGraduationCap, faImages, faLaptopCode } from "@fortawesome/free-solid
 const Services = () => {
     return (
         <ServSections>
-           { <Image>
-                <img src="https://lh3.googleusercontent.com/proxy/y94zu8J1TPbOT9Ue9SvzPZzUnhfZiABv41Sm5FNGwTOq61o85rcP9HHWV0_Sal0dNjF6rXNlitbPkUndsXdqI0zjMUh7X9ardj5Elswi" alt=""/>
-            </Image>}
+            <Image>
+                <img src="https://yata-apix-1ee158a1-98a9-4826-94fe-92cdd81ae3c6.lss.locawebcorp.com.br/c85b15e1895748a68952854f7da6cb3b.png" alt=""/>
+            </Image>
             <ServDescriptions>
                 <h2> Things I Do </h2>
                 <Cards>
@@ -53,7 +53,7 @@ const Services = () => {
 /* Reestilizar as seções do Services */
 const ServSections = styled(About)`
     h2 {
-        padding-top: 5rem;
+        padding: 0rem 0rem 0rem 1rem;
     }
     p {
         width: 80%;
@@ -73,7 +73,7 @@ const Cards = styled.div`
 `;
 
 const Card = styled.div`
-    padding: 0.5rem;
+    padding: 1rem;
     flex-basis: 20rem;
     .icon{
         display: flex;
