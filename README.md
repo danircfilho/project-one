@@ -33,3 +33,5 @@
 - axios (yarn add axios) 'substitui o fetch nas chamadas http'
 
 - swr (yarn add swr) 'efetua cache de dados'
+
+- moment (yarn add moment) 'formatar datas'

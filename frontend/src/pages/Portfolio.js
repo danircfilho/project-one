@@ -10,8 +10,8 @@ const Portfolio = () => {
     return (
         <PortfolioList>
             <CardList>
-                {data?.data?.data?.map(project => {
-                    return( <CardPortfolio project={project}/> ) 
+                {data?.data?.map(project => {
+                    return( <CardPortfolio key={project.slug} project={project}/> ) 
                 })}
             </CardList>   
         </PortfolioList>
