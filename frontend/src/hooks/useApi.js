@@ -1,16 +1,12 @@
- //Chamar as API
+//Chamar as API
+import useSWR from "swr";
+import api from "../services/api";
 
- import useSWR from "swr";
+export const useApi = (url) => {
+	const { data, error } = useSWR(url, async (url) => {
+		const response = await api.get(url);
+		return response.data;
+	});
 
- import api from "../services/api";
-
- export const useApi = (url) => {
-     const {data, error} = useSWR(url, async (url) => {
-          const response = await api.get(url);
-          return response.data
-     })
-
-     return {data, error}
- }
- 
- 
+	return { data, error };
+};

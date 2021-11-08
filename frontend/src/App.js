@@ -19,28 +19,28 @@ import Nav from "./components/Nav";
 import PortfolioDetail from "./components/PortfolioDetail";
 
 function App() {
-  library.add(fas, fab);
+	library.add(fas, fab);
 
-  return (
-    <div>
-      <GlobalStyle />
-      <Nav />
-      <Switch>
-        <Route exact path="/">
-          <AboutUs />
-        </Route>
-        <Route path="/portfolio" exact>
-          <Portfolio />
-        </Route>
-        <Route path="/portfolio/:id">
-          <PortfolioDetail />
-        </Route>
-        <Route path="/contact">
-          <ContactMe />
-        </Route>
-      </Switch>
-    </div>
-  );
+	return (
+		<div>
+			<GlobalStyle />
+			<Nav />
+			<Switch>
+				<Route exact path="/">
+					<AboutUs />
+				</Route>
+				<Route path="/portfolio" exact>
+					<Portfolio />
+				</Route>
+				<Route path="/portfolio/:slug">
+					<PortfolioDetail />
+				</Route>
+				<Route path="/contact">
+					<ContactMe />
+				</Route>
+			</Switch>
+		</div>
+	);
 }
 
 export default App;

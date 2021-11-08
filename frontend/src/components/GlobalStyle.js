@@ -1,9 +1,7 @@
 /* Nota: não necessita importar o react pois não é um componente react */
-import { createGlobalStyle } from 'styled-components';
+import { createGlobalStyle } from "styled-components";
 
 /* Zerar e aplicar globalmente os estilos com styled-components */
-
-/* Não esquecer das aspas duplas */
 const GlobalStyle = createGlobalStyle`
     *{
         margin: 0;
@@ -61,9 +59,8 @@ const GlobalStyle = createGlobalStyle`
         padding: 3rem 0rem;
         color: #ccc;
         font-size: 1.4rem;
-        line-heigth: 150%;
+        /* line-heigth: 150%; */
     }
 `;
 
-export default GlobalStyle
-
+export default GlobalStyle;

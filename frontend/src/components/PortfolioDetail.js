@@ -1,14 +1,21 @@
 import React from "react";
 import styled from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { useParams } from "react-router-dom";
+import { useApi } from "../hooks/useApi";
 
 const PortfolioDetail = () => {
+	const { slug } = useParams();
+	const { data } = useApi(`/portfolio/${slug}`);
+
 	return (
 		<Detail>
 			<Stats>
 				<div>
-					<Title>Title</Title>
-					<ShortDescription>Short Description</ShortDescription>
+					<Title>{data?.data?.title}</Title>
+					<ShortDescription>
+						<p>{data?.data?.description}</p>
+					</ShortDescription>
 				</div>
 				<Info>
 					<h3>Information Technologies</h3>
@@ -27,13 +34,10 @@ const PortfolioDetail = () => {
 			</Stats>
 			<Description>
 				<div>
-					<p>Long description</p>
+					<p>{data?.data?.longDescription}</p>
 				</div>
 			</Description>
-			<img
-				src="https://images.pexels.com/photos/1181244/pexels-photo-1181244.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
-				alt=""
-			/>
+			<img src={data?.data?.image} alt="" />
 		</Detail>
 	);
 };
