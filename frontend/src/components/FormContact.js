@@ -1,20 +1,49 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
+import moment from "moment";
 
 const FormContact = () => {
+    //preencher formulario
+    const [ name, setName ] = useState('');
+    const [ email, setEmail ] = useState('');
+    const [ message, setMessage ] = useState('');
+
+    //capturar os dados
+    const contactMe = (e) => {
+        const data = {
+            Name: name,
+            Email: email,
+            Message: message,
+            Date: moment().format('DD/MM/YYYY'),
+        }
+    }
+
     return (
-        <Form id="contact-form" method="post">
+        <Form onSubmit={contactMe}>
                 <Input>
                     <label>Name:</label>  
-                    < input type="text" />  
+                    < input 
+                        type = "text" 
+                        value = {name}
+                        onChange = { (e)=>{setName(e.target.value)} }
+                    />  
                 </Input>
                 <Input>
                     <label>E-mail:</label>  
-                    <input type="email" />
+                    <input
+                        type = "email" 
+                        value = {email}
+                        onChange = { (e)=>{setEmail(e.target.value)} } 
+                        
+                    />
                 </Input>
                 <Input>
                     <label>Message:</label>  
-                    < textarea rows="5" /> 
+                    < textarea 
+                        rows="5" 
+                        value = {message}
+                        onChange = { (e)=>{setMessage(e.target.value)} } 
+                    /> 
                 </Input>              
                 <button type="submit">Submit</button>                     
         </Form>        

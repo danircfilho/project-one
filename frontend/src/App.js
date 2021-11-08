@@ -16,7 +16,7 @@ import AboutUs from "./pages/AboutUs";
 import Portfolio from "./pages/Portfolio";
 import ContactMe from "./pages/ContactMe";
 import Nav from "./components/Nav";
-import PortfolioDetail from "./components/PortfolioDetail";
+
 
 function App() {
 	library.add(fas, fab);
@@ -29,11 +29,9 @@ function App() {
 				<Route exact path="/">
 					<AboutUs />
 				</Route>
-				<Route path="/portfolio" exact>
+				{/* renderizar na mesma pagina id ou direto- array carrega o <Portflio/>*/}
+				<Route path={['/portfolio:id', '/portfolio']}>
 					<Portfolio />
-				</Route>
-				<Route path="/portfolio/:slug">
-					<PortfolioDetail />
 				</Route>
 				<Route path="/contact">
 					<ContactMe />

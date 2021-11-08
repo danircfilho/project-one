@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 const CardPortfolio = ({ project }) => {
 	return (
 		<StyleCard>
-			{/* para o card ser clicável */}
+			{/* Link - para o card ser clicável */}
 			<Link to={`/portfolio/${project.slug}`}>
 				<StyleContent>
 					<Image src={project.image} alt="" />
@@ -31,10 +31,9 @@ const StyleCard = styled.div`
 	border-radius: 1rem;
 	cursor: pointer;
 	overflow: hidden;
-	img {
-		width: 100%;
-		height: 50vh;
-		object-fit: cover;
+	/* remover o sublinhado do Link - colocar a tag 'a' por causa do href */
+	a {
+		text-decoration: none;
 	}
 `;
 
@@ -48,7 +47,8 @@ const StyleContent = styled.div`
 
 const Image = styled.img`
 	width: 100%;
-	height: 70%;
+	height: 50vh;
+	object-fit: cover;
 `;
 
 const StyleInfo = styled.div`

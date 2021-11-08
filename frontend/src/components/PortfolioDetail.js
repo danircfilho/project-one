@@ -1,46 +1,78 @@
 import React from "react";
 import styled from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { useParams } from "react-router-dom";
 import { useApi } from "../hooks/useApi";
+import { useHistory } from "react-router-dom";
 
-const PortfolioDetail = () => {
-	const { slug } = useParams();
+const PortfolioDetail = ({slug}) => {
 	const { data } = useApi(`/portfolio/${slug}`);
 
+	// useHystory para área clicavel PortfolioDetails
+	//deixar somente a área do PortfolioDetails clicável
+	const hystory = useHistory()
+	
+	const exitPortfolioDetails = (e) => {
+		const element = e.target 
+		if (element.classList.contains('shaddow')) {
+			document.body.style.overflow = 'auto'
+			hystory.push('/portfolio')
+		}
+	}
+
 	return (
-		<Detail>
-			<Stats>
-				<div>
-					<Title>{data?.data?.title}</Title>
-					<ShortDescription>
-						<p>{data?.data?.description}</p>
-					</ShortDescription>
-				</div>
-				<Info>
-					<h3>Information Technologies</h3>
-					<Technologies>
-						<Technol>
-							<FontAwesomeIcon icon={["fab", "react"]} size="4x" /> React
-						</Technol>
-						<Technol>
-							<FontAwesomeIcon icon={["fab", "node-js"]} size="4x" /> NodeJs
-						</Technol>
-						<Technol>
-							<FontAwesomeIcon icon={["fas", "database"]} size="4x" /> MongoDB
-						</Technol>
-					</Technologies>
-				</Info>
-			</Stats>
-			<Description>
-				<div>
-					<p>{data?.data?.longDescription}</p>
-				</div>
-			</Description>
-			<img src={data?.data?.image} alt="" />
-		</Detail>
+		<CardShaddow className='shaddow' onClick={exitPortfolioDetails}>
+			<Detail>
+				<Stats>
+					<div>
+						<Title>{data?.data?.title}</Title>
+						<ShortDescription>
+							<p>{data?.data?.description}</p>
+						</ShortDescription>
+					</div>
+					<Info>
+						<h3>Information Technologies</h3>
+						<Technologies> {
+								data?.data?.technologies.map(techs => {
+									return (
+										<Technol key={techs.icon}>
+											<FontAwesomeIcon icon={[techs.iconType, techs.icon]} size="4x" />{techs.label}
+										</Technol>	
+									)
+								})
+							}	
+						</Technologies>
+					</Info>
+				</Stats>
+				<Description>
+					<div>
+						<p>{data?.data?.longDescription}</p>
+					</div>
+				</Description>
+				<img src={data?.data?.image} alt="" />
+			</Detail>
+		</CardShaddow>
 	);
 };
+
+const CardShaddow = styled.div`
+	width: 100%;
+	min-height: 100vh;
+	overflow-y: scroll;
+	background: rgba(0, 0, 0, 0.5);
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 100;
+	&::-webkit-scrollbar {
+		width: 0.5rem;
+	}
+	&::-webkit-scrollbar-thumb {
+		background-color: #ff7676;
+	}
+	&::-webkit-scrollbar-track {
+		background: white;
+	}
+`;
 
 const Detail = styled.div`
 	width: 80%;
@@ -53,7 +85,7 @@ const Detail = styled.div`
 	z-index: 10;
 	img {
 		width: 100%;
-		height: 50vh;
+		height: 70vh;
 		object-fit: cover; /* ajusta a imagem a div, exemplo - canto arredondado */
 	}
 `;
