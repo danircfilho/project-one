@@ -12,7 +12,7 @@ export const save = (data) => {
         data
     };
 
-    axios (config)
+    return axios (config)
     .then(res => {
         console.log("Dados da Planilha", res)
         return true

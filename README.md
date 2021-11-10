@@ -28,10 +28,12 @@
 
 - fontawesome (yarn add @fortawesome/fontawesome-svg-core , yarn add @fortawesome/free-solid-svg-icons , yarn add @fortawesome/react-fontawesome, yarn add @fortawesome/free-brands-svg-icons, yarn add @fortawesome/free-regular-svg-icons) 'https://fontawesome.com/'
 
-- react-router-dom (yarn add react-router-dom) versão instalada (react-router-dom@5.2.0 - erros 'Switch') 'roteamento entre paginas'
+- react-router-dom (yarn add react-router-dom) versão instalada (react-router-dom@5.2.0 ou @5.3 - acima erros no 'Switch') 'roteamento entre paginas'
 
 - axios (yarn add axios) 'substitui o fetch nas chamadas http'
 
 - swr (yarn add swr) 'efetua cache de dados'
 
 - moment (yarn add moment) 'formatar datas'
+
+- framer motion (yarn add framer-motion) 'animações' yarn add framer-motion@4.1.17 - acima erro

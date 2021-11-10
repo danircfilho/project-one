@@ -5,6 +5,11 @@ import { useApi } from "../hooks/useApi";
 import { useLocation } from "react-router-dom";
 import PortfolioDetail from "../components/PortfolioDetail"
 
+import { motion } from 'framer-motion'
+import { pageAnimation } from '../animation'
+
+import ScrollTop from "../components/ScrollTop";
+
 const Portfolio = () => {
     //renderizar na mesma pagina
     //pela barra busca o segundo elemento (página das descrições)
@@ -13,8 +18,12 @@ const Portfolio = () => {
     const { data } = useApi ('/portfolio')
 
     return (
-        <PortfolioList>
-
+        <PortfolioList
+            initial = 'hidden'
+            animate = 'show'
+            exit = 'exit'
+            variants = { pageAnimation }
+            >
             {/* renderizar mesma pagina */}
             {slug && <PortfolioDetail slug={slug} />}
 
@@ -22,12 +31,14 @@ const Portfolio = () => {
                 {data?.data?.map(project => {
                     return( <CardPortfolio key={project.slug} project={project}/> ) 
                 })}
-            </CardList>   
+            </CardList> 
+            <ScrollTop />
         </PortfolioList>
+       
     )
 }
 
-const PortfolioList = styled.div`
+const PortfolioList = styled(motion.div)`
     min-height: 90vh;
     overflow: hidden;
     padding: 5rem 10rem;
