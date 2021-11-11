@@ -1,12 +1,31 @@
 import React from "react";
 import { About, Description, Image } from "../styles";
 
-import { motion } from "framer-motion";
-import { titleAnimation, fade, photoAnimation } from "../animation";
+import { useHistory } from "react-router-dom";
 
+import { motion } from "framer-motion";
+import { titleAnimation, fade, photoAnimation, scrollReveal } from "../animation";
+import { useScroll } from '../hooks/useScroll';
+
+//O componente AboutSection recebe as caracteristicas do About que passou a ser 'motion' (ver em styles.js a 	mudança no About)
+//Desta forma consguimos aplicar a animação (scrollReveal - animation e o hook useScroll)
 const AboutSection = () => {
+	const [element, controls] = useScroll()
+	const hystory = useHistory()
+
+	//usando o hystory para o botão mudar para a página Contact Me
+	const redirect = () => {
+		hystory.push('/contact')
+	}
+
 	return (
-		<About>
+		//Não esquecer de colocar dentro da tag de abertura <About....>
+		<About
+			variants={scrollReveal}
+            animate={controls}
+            initial='hidden'
+            ref={element}
+		>
 			<Description>
 				<motion.h2 variants={ titleAnimation }>Daniel Rodrigues</motion.h2>
 				<motion.h2 variants={ titleAnimation }>Developer FullSatck</motion.h2>
@@ -17,7 +36,7 @@ const AboutSection = () => {
 					exact original form, accompanied by English versions from the 1914
 					translation by H. Rackham.
 				</motion.p>
-				<button>Click Aqui</button>
+				<button onClick={redirect}>Click Aqui</button>
 			</Description>
 			<Image>
 				<motion.div variants={ photoAnimation }>

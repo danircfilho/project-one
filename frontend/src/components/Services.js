@@ -6,10 +6,20 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome" /* esse não po
 import { faGithubSquare } from "@fortawesome/free-brands-svg-icons"; 
 import { faGraduationCap, faImages, faLaptopCode } from "@fortawesome/free-solid-svg-icons"; 
 
+import { scrollReveal } from '../animation';
+import { useScroll } from "../hooks/useScroll";
 
+//O componente Services recebe as caracteristicas do About que passou a ser 'motion' (ver em styles.js a 	mudança no About)
+//Desta forma consguimos aplicar a animação (scrollReveal - animation e o hook useScroll)
 const Services = () => {
+    const [element, controls] = useScroll()
     return (
-        <ServSections>
+        <ServSections
+            variants={scrollReveal}
+            animate={controls}
+            initial='hidden'
+            ref={element}
+        >
             <Image>
                 <img src="https://yata-apix-1ee158a1-98a9-4826-94fe-92cdd81ae3c6.lss.locawebcorp.com.br/c85b15e1895748a68952854f7da6cb3b.png" alt=""/>
             </Image>
@@ -51,7 +61,7 @@ const Services = () => {
 }
 
 /* Reestilizar as seções do Services */
-const ServSections = styled(About)`
+const ServSections = styled(About)` /* recebe as caracteristicas do About (que passou a ser motion) */
     h2 {
         padding: 0rem 0rem 0rem 1rem;
     }

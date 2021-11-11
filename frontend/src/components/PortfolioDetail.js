@@ -77,6 +77,7 @@ const CardShaddow = styled.div`
 const Detail = styled.div`
 	width: 80%;
 	min-height: 80vh;
+	border-radius: 1rem;
 	background: white;
 	position: absolute;
 	left: 10%;
@@ -86,7 +87,7 @@ const Detail = styled.div`
 	img {
 		width: 100%;
 		height: 70vh;
-		object-fit: cover; /* ajusta a imagem a div, exemplo - canto arredondado */
+		object-fit: cover; //ajusta a imagem a div, exemplo - canto arredondado
 	}
 `;
 

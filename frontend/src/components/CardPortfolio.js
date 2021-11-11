@@ -31,9 +31,8 @@ const StyleCard = styled.div`
 	border-radius: 1rem;
 	cursor: pointer;
 	overflow: hidden;
-	/* remover o sublinhado do Link - colocar a tag 'a' por causa do href */
 	a {
-		text-decoration: none;
+		text-decoration: none; //remover o sublinhado do Link - colocar a tag 'a' por causa do href
 	}
 `;
 

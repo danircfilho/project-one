@@ -25,7 +25,7 @@ export const pageAnimation = {
 
 export const titleAnimation = {
     hidden: {
-        y: 800
+        y: 300
     },
     show: {
         y: 0,
@@ -33,7 +33,7 @@ export const titleAnimation = {
             duration: 0.75,
             ease:'easeOut'
         }
-}
+    }
 }
 
 export const fade = {
@@ -46,7 +46,7 @@ export const fade = {
             duration: 2,
             ease:'easeOut'
         }
-}
+    }
 }
 
 export const photoAnimation = {
@@ -61,5 +61,24 @@ export const photoAnimation = {
             duration: 0.75,
             ease:'easeOut'
         }
+    }
 }
+
+export const scrollReveal = {
+    hidden: {
+        scale: 1.2, 
+        opacity: 0,
+        transition: {
+            duration: 0.5
+        }        
+    },
+    show: {
+        scale: 1, 
+        opacity: 1,
+        transition: {
+            duration: 0.5
+        }
+    }
 }
+
+
