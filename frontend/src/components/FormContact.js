@@ -65,20 +65,18 @@ const FormContact = () => {
                     onChange = { (e)=>{setMessage(e.target.value)} } 
                 /> 
             </Input>
-            <Message>             
-            <button type="submit">Submit</button> 
-            {success && <h4>Mensagem enviada com sucesso!</h4>}                    
-            {err && <h4>Ocorreu um erro! Por favor, envie a mensagem novamente!</h4>} 
+            <Message> 
+                <div>
+                    <button type="submit">Submit</button>    
+                </div>            
+                <span>
+                    {success && <h4>Mensagem enviada com sucesso!</h4>}                    
+                    {err && <h4>Ocorreu um erro! Por favor, envie a mensagem novamente!</h4>}
+                </span> 
             </Message>                    
         </Form>        
     )
 }
-
-const Message = styled.div`
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-`;
 
 const Form = styled.form`
     button {
@@ -127,6 +125,15 @@ const Input = styled.div`
     textarea:focus {
         background-color: grey;
         color: yellow; 
+    }
+`;
+
+const Message = styled.div`
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    span {
+        padding-left: 5px;
     }
 `;
 

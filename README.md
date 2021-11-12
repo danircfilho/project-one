@@ -39,3 +39,6 @@
 - framer motion (yarn add framer-motion) 'animações' yarn add framer-motion@4.1.17 - versão superior com bugs
 
 - react-intersection-observer (yarn add react-intersection-observer) 'observar se o componente está ou não visível na tela'
+
+- react bootstrap (yarn add react-bootstrap bootstrap@4.6.0) 'paginas com o bootstrap no react' (react-bootstrap.github.io) ' documentação' Ps: Normalmente as versões do Bootstrap reportam incompatibilidade em algumas ferramentas
+

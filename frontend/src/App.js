@@ -4,7 +4,7 @@ import React from "react";
 import GlobalStyle from "./components/GlobalStyle";
 
 /* Roteamento */
-import { Route, Switch } from "react-router-dom";
+import { Route, Switch, useLocation } from "react-router-dom";
 
 /* Icones - library = toda a biblioteca que for usar...fas, fab etc*/
 import { library } from "@fortawesome/fontawesome-svg-core";
@@ -16,29 +16,44 @@ import AboutUs from "./pages/AboutUs";
 import Portfolio from "./pages/Portfolio";
 import ContactMe from "./pages/ContactMe";
 import Nav from "./components/Nav";
+import Admin from "./pages/Admin";
 
 
 function App() {
+	const location = useLocation() //variável location é igual a função do useLocation()
 	library.add(fas, fab);
-
+	// Toda vez que se usar JS entre as tags deve se colocar entre colchetes {}
+	// Ver Nav = retirando o nav da página Admin. Neste caso, diferente d Admin o menu Nav aparece
 	return (
 		<div>
 			<GlobalStyle />
-			<Nav />
+			{location.pathname !== '/admin' && <Nav />}
 			<Switch>
-				<Route exact path="/">
-					<AboutUs />
-				</Route>
-				{/* renderizar na mesma pagina id ou direto- array carrega o <Portflio/>*/}
-				<Route path={['/portfolio:id', '/portfolio']}>
-					<Portfolio />
-				</Route>
-				<Route path="/contact">
-					<ContactMe />
-				</Route>
+				<Route exact path="/" component={ AboutUs } />
+				<Route path={['/portfolio:id', '/portfolio']} component={ Portfolio } />
+				<Route path="/contact" component={ ContactMe } />
+				<Route path="/admin" component={ Admin } />
 			</Switch>
 		</div>
 	);
 }
+
+// Exemplo sem refatorar as rotas no Switch
+//	<div>
+//		<GlobalStyle />
+//		<Nav />
+//		<Switch>
+//			<Route exact path="/">
+//				<AboutUs />
+//			</Route>
+//			{/* renderizar na mesma pagina id ou direto- array carrega o <Portflio/>*/}
+//			<Route path={['/portfolio:id', '/portfolio']}>
+//				<Portfolio />
+//			</Route>
+//			<Route path="/contact">
+//				<ContactMe />
+//			</Route>
+//		</Switch>
+// </div>
 
 export default App;

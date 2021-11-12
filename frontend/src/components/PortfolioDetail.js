@@ -62,7 +62,7 @@ const CardShaddow = styled.div`
 	position: fixed;
 	top: 0;
 	left: 0;
-	z-index: 100;
+	z-index: 10;
 	&::-webkit-scrollbar {
 		width: 0.5rem;
 	}
