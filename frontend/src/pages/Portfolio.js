@@ -27,16 +27,21 @@ const Portfolio = () => {
             {/* renderizar mesma pagina */}
             {slug && <PortfolioDetail slug={slug} />}
 
-            <CardList>
-                {data?.data?.map(project => {
-                    return( <CardPortfolio key={project.slug} project={project}/> ) 
-                })}
-            </CardList> 
+            <Hide>
+                <CardList>
+                    {data?.data?.map(project => {
+                        return( <CardPortfolio key={project.slug} project={project}/> ) 
+                    })}
+                </CardList> 
+            </Hide>
             <ScrollTop />
-        </PortfolioList>
-       
+        </PortfolioList>       
     )
 }
+
+const Hide = styled.div`
+    overflow: hidden;
+`;
 
 const PortfolioList = styled(motion.div)`
     min-height: 90vh;
