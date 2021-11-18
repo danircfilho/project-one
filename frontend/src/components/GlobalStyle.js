@@ -63,8 +63,8 @@ const GlobalStyle = createGlobalStyle`
     }
 
     label {
-        color: white;
-        font-weight: bold;
+        color: black;
+        font-weight: lighter;
     }
 `;
 
