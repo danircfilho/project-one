@@ -105,11 +105,12 @@ const PortfolioList = () => {
 
     const editPortfolioItem = (slug, data) => {
          //remover o id gerado para que o bd gere automaticamente
+         // eslint-disable-next-line no-unused-vars
          const tech = data.tech.map(i => { //map (loop) no data.tech, gera novi item (i)
             delete i._id //delete o elemnto do i
             return i //retorna o que sobrou do i
         })
-        
+
         const newPortfolioItem = {
             title: data.title,
             description: data.description,

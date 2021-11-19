@@ -5,6 +5,11 @@ import styled from "styled-components";
 
 /* Navigation */
 import { Link } from "react-router-dom";
+import Userfront from "@userfront/react";
+import { LogoutButton } from "./admin/auth/Authentication";
+
+//Iniciar o UserFront para ocultar ou não os botões de Login e Cadastro (Signup)
+Userfront.init("xbrzvzbw");
 
 const Nav = () => {
 	/*  Para criar uma label com os caracteres como se fossem componentes </> */
@@ -30,6 +35,23 @@ const Nav = () => {
 				<li>
 					<Link to="/contact"> {menuOption.contact} </Link>
 				</li>
+
+				{ //caso não esteja logado mostrar os botões de login e signup
+					!Userfront.accessToken() && (
+						<>
+							<li>
+								<Link to="/login">Login</Link>
+							</li>
+							<li>
+								<Link to="/signup">Cadastro</Link>
+							</li>
+						</>
+					)
+				}
+				{ //caso esteja logado mostrar o botão logout
+					Userfront.accessToken() && <li> <LogoutButton /> </li>
+				}
+
 			</ul>
 		</StyledNav>
 	);
@@ -51,7 +73,7 @@ const StyledNav = styled.nav`
 		list-style: none;
 	}
 	li {
-		padding-left: 10rem;
+		padding-left: 5rem;
 	}
 	a {
 		color: white;

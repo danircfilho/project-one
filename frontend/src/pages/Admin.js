@@ -5,7 +5,29 @@ import "../styles.css";
 import PortfolioList from "../components/admin/PortfolioList";
 import WelcomeTab from "../components/admin/WelcomeTab";
 
-const Admin = () => {
+//Redirecionar caso haja a tentativa de acessar a página admim pelo pathname
+import { Redirect } from "react-router-dom";
+import Userfront from "@userfront/react";
+import jwt_decode from "jwt-decode";
+
+//Iniciar o UserFront 
+Userfront.init("xbrzvzbw");
+
+//Location como props
+const Admin = ({location}) => {
+    if (!Userfront.accessToken()) {
+        return (
+            <Redirect to={{
+                pathname: '/login',
+                state: { from: location }, //caso tente acessar admin sem logar volta para a pagina login
+                }}
+            />
+        )
+    }
+    
+    //Retmar depois....
+    const userData = jwt_decode(Userfront.accessToken()) 
+
     return (
         <Container fluid className='Container'> {/* fluid ocupa o máximo possível da tela */}
             <Jumbotron>

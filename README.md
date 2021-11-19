@@ -42,3 +42,6 @@
 
 - react bootstrap (yarn add react-bootstrap bootstrap@4.6.0) 'paginas com o bootstrap no react' (react-bootstrap.github.io) ' documentação' Ps: Normalmente as versões do Bootstrap reportam incompatibilidade em algumas ferramentas
 
+- userfront (yarn add  @userfront/react) proteção e autorizaçã de acessos - https://userfront.com/
+
+-jwt-decode (yarn add jwt-decode) decodificar JWT
