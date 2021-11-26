@@ -15,6 +15,8 @@ Userfront.init("xbrzvzbw");
 
 //Location como props
 const Admin = ({location}) => {
+    const projectId ="xbrzvzbw"
+    
     if (!Userfront.accessToken()) {
         return (
             <Redirect to={{
@@ -24,9 +26,27 @@ const Admin = ({location}) => {
             />
         )
     }
+
+    const accessData = jwt_decode(Userfront.accessToken()) 
+    const userData = jwt_decode(Userfront.idToken())
+    const roles = accessData.authorization[projectId].roles
+    const isAdmin = roles.includes('admin')
+
+    if (!isAdmin) {
+        return (
+            <Redirect to={{
+                pathname: '/portfolio',
+                }}
+            />
+        )
+    }
+
     
-    //Retmar depois....
-    const userData = jwt_decode(Userfront.accessToken()) 
+    //Testes 
+    console.log ('Access', accessData)
+    console.log ('User', userData)
+    const access = JSON.stringify(accessData)
+    const user = JSON.stringify(userData)
 
     return (
         <Container fluid className='Container'> {/* fluid ocupa o máximo possível da tela */}
@@ -39,6 +59,11 @@ const Admin = ({location}) => {
                 </Tab>
                 <Tab eventKey="portfolio" title="Portfolio">
                     <PortfolioList />
+                </Tab>
+                <Tab eventKey="user" title="User">
+                    <p>User</p>
+                    <p>{access}</p>
+                    <p>{user}</p>                    
                 </Tab>
             </Tabs> 
         </Container>      

@@ -20,6 +20,8 @@
 
 - concurrently (npm i concurrently -D) 'execute multiple commands'
 
+-jsonwebtoken (npm install jsonwebtoken) 
+
 ## Frontend (yarn)
 
 - http-proxy-middleware (yarn add http-proxy-middleware) 'installed in frontend folder with yarn'
